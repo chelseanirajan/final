@@ -1,8 +1,14 @@
 package com.jugal.adminsecurity.user.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jugal.adminsecurity.model.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import java.util.Date;
+
 @Entity
 @Table(name = "studentTable")
 public class Student {
@@ -10,36 +16,89 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
+    @Valid
+    @NotBlank(message = "Enter the full name")
     @Column(name = "student_name")
     private  String name;
-    private  String symbolNo;
+    @Valid
+    @Min(value = 2070, message = "year must be in valid format")
+    @Max(value = 3070, message = "year must be in valid format")
+    private  Long year;
+    @Valid
+    @Size(min = 10,max = 45)
     private String schoolName;
+    @Min(value = 1, message = "The value must be positive")
     private int rollNo;
+    @Valid
+    @Pattern(regexp="([0-9]{4})[-/.]([0-12]{2})[-/.][0-32]{2}", message = "please enter date in yyyy/mm/dd format")
     private String doB;
     private String fatherName;
     private String motherName;
-
+    @Column(name="added_date",updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date addedDate=new Date();
+    //@UpdateTimestamp
+    @Column(name = "modified_date",insertable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifiedDate=new Date();
+    @Valid
+    @Max(value = 75, message = "You exceeded full marks")
     private float  englishTh;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  englishPr;
+    @Valid
+    @Max(value = 75, message = "You exceeded full marks")
     private float  nepaliTh;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  nepaliPr;
+    @Valid
+    @Max(value = 100, message = "You exceeded full marks")
     private float  mathTh;
+    @Valid
+    @Max(value = 75, message = "You exceeded full marks")
     private float  scienceTh;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  sciencePr;
+    @Valid
+    @Max(value = 75, message = "You exceeded full marks")
     private float  socialTh;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  SocialPr;
+    @Valid
+    @Max(value = 50, message = "You exceeded full marks")
     private float  obtTh;
+    @Valid
+    @Max(value = 50, message = "You exceeded full marks")
     private float  obtPr;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  healthTh;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  healthPr;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  moralTh;
+    @Valid
+    @Max(value = 25, message = "You exceeded full marks")
     private float  moralPr;
+    @Valid
+    @Max(value = 50, message = "You exceeded full marks")
     private float  optTh;
+    @Valid
+    @Max(value = 50, message = "You exceeded full marks")
     private float  optPr;
 
     @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Parent parent;
 
 
     public long getId() {
@@ -234,12 +293,12 @@ public class Student {
         this.optPr = optPr;
     }
 
-    public String getSymbolNo() {
-        return symbolNo;
+    public Long getYear() {
+        return year;
     }
 
-    public void setSymbolNo(String symbolNo) {
-        this.symbolNo = symbolNo;
+    public void setYear(Long year) {
+        this.year = year;
     }
 
     public User getUser() {
@@ -250,34 +309,27 @@ public class Student {
         this.user = user;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", symbolNo='" + symbolNo + '\'' +
-                ", schoolName='" + schoolName + '\'' +
-                ", rollNo=" + rollNo +
-                ", doB='" + doB + '\'' +
-                ", fatherName='" + fatherName + '\'' +
-                ", motherName='" + motherName + '\'' +
-                ", englishTh=" + englishTh +
-                ", englishPr=" + englishPr +
-                ", nepaliTh=" + nepaliTh +
-                ", nepaliPr=" + nepaliPr +
-                ", mathTh=" + mathTh +
-                ", scienceTh=" + scienceTh +
-                ", sciencePr=" + sciencePr +
-                ", socialTh=" + socialTh +
-                ", SocialPr=" + SocialPr +
-                ", obtTh=" + obtTh +
-                ", obtPr=" + obtPr +
-                ", healthTh=" + healthTh +
-                ", healthPr=" + healthPr +
-                ", moralTh=" + moralTh +
-                ", moralPr=" + moralPr +
-                ", optTh=" + optTh +
-                ", optPr=" + optPr +
-                '}';
+    public Date getAddedDate() {
+        return addedDate;
+    }
+
+    public void setAddedDate(Date addedDate) {
+        this.addedDate = addedDate;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 }

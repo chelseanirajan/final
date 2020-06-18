@@ -1,0 +1,10 @@
+#idBlock div {
+    width: 170px;
+    height: 80px;
+}
+#idBlock #marginLeft {
+    margin-left: 100px;
+}
+#idBlock #marginLeft h3{
+    padding-left: 20px;
+}

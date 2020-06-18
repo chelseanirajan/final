@@ -22,13 +22,13 @@
                 </spring:bind>
             </div>
             <div class="col-md-4 mb-3">
-                <spring:bind path="symbolNo">
+                <spring:bind path="year">
                     <div class="form-group  ${status.error ? 'has-error' : ''}">
-                        <label class="form-check-label" for="symbolNo">Symbol No.:</label>
-                        <form:input type="text" path="symbolNo" class="form-control"
+                        <label class="form-check-label" for="year">Year:</label>
+                        <form:input type="text" path="year" class="form-control"
                                     required="required"
                                     autofocus="true"></form:input>
-                        <form:errors path="symbolNo"></form:errors>
+                        <form:errors path="year"></form:errors>
                     </div>
                 </spring:bind>
             </div>
@@ -128,13 +128,13 @@
                 </spring:bind>
             </div>
             <div class="col-md-4 mb-3">
-                <spring:bind path="nepaliTh">
+                <spring:bind path="nepaliPr">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <label class="form-check-label" for="nepaliTh">Nepali Pr:</label>
-                        <form:input type="text" path="nepaliTh" class="form-control"
+                        <label class="form-check-label" for="nepaliPr">Nepali Pr:</label>
+                        <form:input type="text" path="nepaliPr" class="form-control"
                                     placeholder="Nepali Pr"
                                     autofocus="true"></form:input>
-                        <form:errors path="nepaliTh"></form:errors>
+                        <form:errors path="nepaliPr"></form:errors>
                     </div>
                 </spring:bind>
             </div>

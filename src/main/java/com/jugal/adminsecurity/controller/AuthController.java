@@ -41,7 +41,7 @@ public class AuthController {
 
         return "registration";
     }
-
+/*
     @PostMapping("/registration")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
@@ -57,6 +57,8 @@ public class AuthController {
 
         return "redirect:/";
     }
+
+ */
 
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {

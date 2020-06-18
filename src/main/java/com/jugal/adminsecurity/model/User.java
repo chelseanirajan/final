@@ -1,6 +1,7 @@
 package com.jugal.adminsecurity.model;
 
 import com.jugal.adminsecurity.user.model.Student;
+import com.jugal.adminsecurity.user.model.Teacher;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,6 +16,10 @@ import java.util.Set;
 
         private String username;
 
+        private String email;
+        private String mobileNo;
+        private String schoolName;
+        private String schoolAddress;
         private String password;
 
         @Transient
@@ -22,6 +27,9 @@ import java.util.Set;
 
         @OneToMany(cascade = CascadeType.ALL)
         private List<Student> students;
+
+        @OneToMany(cascade = CascadeType.ALL)
+        private List<Teacher> teachers;
 
         @ManyToMany
         private Set<Role> roles;
@@ -73,6 +81,46 @@ import java.util.Set;
 
         public void setStudents(List<Student> students) {
             this.students = students;
+        }
+
+        public List<Teacher> getTeachers() {
+            return teachers;
+        }
+
+        public void setTeachers(List<Teacher> teachers) {
+            this.teachers = teachers;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getMobileNo() {
+            return mobileNo;
+        }
+
+        public void setMobileNo(String mobileNo) {
+            this.mobileNo = mobileNo;
+        }
+
+        public String getSchoolAddress() {
+            return schoolAddress;
+        }
+
+        public void setSchoolAddress(String schoolAddress) {
+            this.schoolAddress = schoolAddress;
+        }
+
+        public String getSchoolName() {
+            return schoolName;
+        }
+
+        public void setSchoolName(String schoolName) {
+            this.schoolName = schoolName;
         }
     }
 

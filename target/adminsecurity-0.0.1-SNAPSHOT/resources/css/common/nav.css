@@ -1,3 +1,4 @@
+
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
@@ -20,7 +21,6 @@
 .navbar-inverse .navbar-nav>li>a:focus {
     background-color: #002200
 }
-.navbar-collapse{flex-basis: 50%;}
 
 .navbar-inverse .navbar-nav>.active>a,
 .navbar-inverse .navbar-nav>.open>a,
@@ -34,9 +34,6 @@
 
 .dropdown-menu {
     background-color: #006B00
-}
-.navbar-toggle {
-    display: none;
 }
 
 .dropdown-menu>li>a:hover,
@@ -110,6 +107,21 @@
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
     border-bottom-color: #FFFFFF
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Please Subscribe My Youtube Channel
+https://www.youtube.com/channel/UCQM5ye1xR4vJgtga0ryud2Q/
+*/
 
 /*====================
 	Footer

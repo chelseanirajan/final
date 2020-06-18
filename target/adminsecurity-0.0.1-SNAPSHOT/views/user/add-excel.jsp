@@ -1,7 +1,10 @@
 <%@include file="header.jsp"%>
 <div class="container">
+    <div class="alert-danger">
+        <p>First two rows are header of Excel !!!</p>
+    </div>
     <div class="py-5 text-center">
-        <h2>Upload Excel File to MySQL</h2>
+        <h2>Upload Excel File to Database</h2>
         <form method="POST"  action="${contextPath}/user/student/nn?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="control-label">Upload File:</label>
@@ -12,10 +15,6 @@
                     name="back"
                     onclick="window.history.back()">Back</button>
         </form>
-        <div>
-            <h3>${message}</h3>
-
-        </div>
     </div>
 
     <h1>${message}</h1>

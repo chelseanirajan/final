@@ -1,5 +1,7 @@
 package com.jugal.adminsecurity.user.controller;
 
+import com.jugal.adminsecurity.model.User;
+import com.jugal.adminsecurity.service.UserServiceImpl;
 import com.jugal.adminsecurity.user.model.Student;
 import com.jugal.adminsecurity.user.service.StudentServiceImpl;
 import com.jugal.adminsecurity.user.utils.PdfUtils;
@@ -22,14 +24,16 @@ import java.util.List;
 public class PdfDownloadDontroller {
     @Autowired
     private StudentServiceImpl studentService;
+    @Autowired
+    private UserServiceImpl userService;
 
     @RequestMapping(value = "/pdfreport", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> citiesReport(@RequestParam("id") Long id) throws IOException {
 
         List<Student> student =  Arrays.asList(studentService.findById(id));// yema multiple id haney ra multiple student chiney
-
-        ByteArrayInputStream bis = PdfUtils.citiesReport(student); // yema pathaya ra multiple data line
+        User user= userService.getCurrentUser();
+        ByteArrayInputStream bis = PdfUtils.citiesReport(student,user); // yema pathaya ra multiple data line
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename=personalStudent.pdf");
