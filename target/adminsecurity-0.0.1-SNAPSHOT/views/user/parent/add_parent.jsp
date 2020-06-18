@@ -27,7 +27,7 @@
                         <form:input type="text" path="phoneNo" class="form-control"
                                     placeholder="Phone No"
                                     autofocus="true"></form:input>
-                        <form:errors path="phoneNo"></form:errors>
+                        <form:errors cssClass="error-message" path="phoneNo"></form:errors>
                     </div>
                 </spring:bind>
             </div>
@@ -40,7 +40,7 @@
                         <form:input type="text" path="addressAddr" class="form-control"
                                     placeholder="Address"
                                     autofocus="true"></form:input>
-                        <form:errors path="addressAddr"></form:errors>
+                        <form:errors cssClass="error-message" path="addressAddr"></form:errors>
                     </div>
                 </spring:bind>
             </div>

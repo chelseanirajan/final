@@ -1,9 +1,9 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1">overview</h2>
+                <h2 class="title-1">Students Info</h2>
                 <button class="au-btn au-btn-icon au-btn--blue">
                     <a style="color: white" href="/user/student"><i class="zmdi zmdi-plus"></i>add student</a>
                 </button>
@@ -90,97 +90,109 @@
         </div>
          --%>
 
-        <form:form action="${applicationContext}/user/student/search">
-            <div class="input-group" style="width: 50%;">
-                <select name="searchName" class="form-control">
-                    <option value="">Please Select Year............</option>
-                    <c:forEach items="${category}" var="category">
-                        <option value="${category.longValue()}">
-                                ${category.longValue()}
-                        </option>
-                    </c:forEach>
-                </select>
-                <div class="input-group-btn">
-                    <button class="btn btn-primary" type="submit" onclick="resetForm()">
-                        <i class="glyphicon glyphicon-search"></i></button>
-                </div>
+    <form:form action="${applicationContext}/user/student/search">
+        <div class="input-group" style="width: 50%;">
+            <select name="searchName" class="form-control">
+                <option value="">Please Select Year............</option>
+                <c:forEach items="${category}" var="category">
+                    <option value="${category.longValue()}">
+                            ${category.longValue()}
+                    </option>
+                </c:forEach>
+            </select>
+            <div class="input-group-btn">
+                <button class="btn btn-primary" type="submit" onclick="refreshPage()">
+                    <i class="glyphicon glyphicon-search"></i></button>
             </div>
+        </div>
 
-        </form:form>
+    </form:form>
     <br>
 
-    <form:form method="POST" action="/user/student/checked" id="formId" >
-    <form:errors class="error-message" path="checkbox"></form:errors>
-    <table class="table table-bordered table-hover table-striped" >
-        <thead class="table-dark">
-        <tr>
-            <th>Name</th>
-            <th>Year</th>
-            <th>Father Name</th>
-            <th>Roll No</th>
-            <th>Date of Birth</th>
-            <th>Added Date</th>
-            <th>Modified Date</th>
-            <th>Operation</th>
-            <th><input type="checkbox" id="select_all"/>|
-                <input type = "submit" class="btn-success" id="checkbox"  onsubmit="return validateform()"
-                       onclick="resetForm()" value = "C R" formtarget="_blank"/>
-            </th>
-        </tr>
-        </thead>
-        <c:forEach var="student" items="${student}" varStatus="loop">
-
+    <form:form method="POST" action="/user/student/checked" id="formId">
+        <form:errors class="error-message" path="checkbox"></form:errors>
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark">
             <tr>
-                <td>${student.name}</td>
-                <td>${student.year}</td>
-                <td>${student.fatherName}</td>
-                <td>${student.rollNo}</td>
-                <td>${student.doB}</td>
-                <td>${student.addedDate}</td>
-                <td>${student.modifiedDate}</td>
-                <td>
-                    <a href="/user/student/edit?id=${student.id}" class="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                    <a href="/user/student/details?id=${student.id}" class="btn btn-info btn-sm">
-                        <span class="glyphicon glyphicon-list-alt"></span>
-                    </a>
-                    <a href="/user/student/delete?id=${student.id}" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                </td>
-                <td><input type="checkbox" name="checkIds" id="ck" class="checkbox" value="${student.id}">  </td>
+                <th>Student Name</th>
+                <th>Year</th>
+                <th>Roll No</th>
+                <th>Date of Birth</th>
+                <th>Added Date</th>
+                <th>Modified Date</th>
+                <th>Operation</th>
+                <th><input type="checkbox" id="select_all"/>|
+                    <input type="submit" class="btn-success" id="checkbox"
+                           onsubmit="return validateForm()"
+                           onclick="resetForm()" value="C R" formtarget="_blank"/>
+                </th>
             </tr>
-        </c:forEach>
-    </table>
+            </thead>
+            <c:forEach var="student" items="${student}" varStatus="loop">
+
+                <tr>
+                    <td>${student.name}</td>
+                    <td>${student.year}</td>
+                    <td>${student.rollNo}</td>
+                    <td>${student.doB}</td>
+                    <td>${student.addedDate}</td>
+                    <td>${student.modifiedDate}</td>
+                    <td>
+                        <a href="/user/student/edit?id=${student.id}" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a href="/user/student/details?id=${student.id}" class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                        </a>
+                        <a href="/user/student/delete?id=${student.id}" class="btn btn-danger btn-sm"
+                           onclick="return confirm('Do you want to delete?')">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                    <td><input type="checkbox" name="checkIds" id="ck" class="checkbox" value="${student.id}"></td>
+                </tr>
+            </c:forEach>
+        </table>
     </form:form>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 <script>
-        $(document).ready(function(){
-            $('#select_all').on('click',function(){
-                if(this.checked){
-                    $('.checkbox').each(function(){
-                        this.checked = true;
-                    });
-                }else{
-                    $('.checkbox').each(function(){
-                        this.checked = false;
-                    });
-                }
-            });
+    function resetForm(){
+        if ($(".checkbox:checkbox:checked").length > 0) {
+            this.refreshPage();
+        }
+    }
 
-            $('.checkbox').on('click',function(){
-                if($('.checkbox:checked').length == $('.checkbox').length){
-                    $('#select_all').prop('checked',true);
-                }else{
-                    $('#select_all').prop('checked',false);
-                }
-            });
+    $("#formId")
+        .submit(function ($event) {
+            if ($(".checkbox:checkbox:checked").length < 1) {
+                $event.preventDefault();
+            }
+        })
+    $(document).ready(function () {
+        $('#select_all').on('click', function () {
+            if (this.checked) {
+                $('.checkbox').each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $('.checkbox').each(function () {
+                    this.checked = false;
+                });
+            }
         });
-    function resetForm() {
-        // either you can reload current page or manually uncheck checkboxes.
 
+        $('.checkbox').on('click', function () {
+            if ($('.checkbox:checked').length == $('.checkbox').length) {
+                $('#select_all').prop('checked', true);
+            } else {
+                $('#select_all').prop('checked', false);
+            }
+        });
+    });
+
+    function refreshPage() {
+        // either you can reload current page or manually uncheck checkboxes.
         window.location.reload();
     }
 

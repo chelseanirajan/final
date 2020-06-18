@@ -10,8 +10,6 @@
                     <spring:bind path="fullName">
                         <div class="form-group required ${status.error ? 'has-error' : ''}">
                             <label class="form-check-label" for="fullName">Full Name:
-                                <spring:message
-                                        code="" text=""></spring:message>
                             </label>
                             <form:input type="text" path="fullName" class="form-control"
                                         placeholder="Full Name"
@@ -29,7 +27,7 @@
                             <form:input type="text" path="address" class="form-control"
                                         placeholder="Address"
                                         autofocus="true"></form:input>
-                            <form:errors path="address"></form:errors>
+                            <form:errors cssClass="error-message" path="address"></form:errors>
                         </div>
                     </spring:bind>
                 </div>
@@ -42,7 +40,7 @@
                             <form:input type="text" path="phoneNo" class="form-control"
                                         placeholder="Phone No"
                                         autofocus="true"></form:input>
-                            <form:errors path="phoneNo"></form:errors>
+                            <form:errors cssClass="error-message" path="phoneNo"></form:errors>
                         </div>
                     </spring:bind>
                 </div>
@@ -55,7 +53,7 @@
                         <form:input type="text" path="emailId" class="form-control"
                                     placeholder="Email ID"
                                     autofocus="true"></form:input>
-                        <form:errors path="emailId"></form:errors>
+                        <form:errors cssClass="error-message" path="emailId"></form:errors>
                     </div>
                 </spring:bind>
             </div>
@@ -68,7 +66,7 @@
                                 <form:input type="text" path="subject" class="form-control"
                                             placeholder="Subject"
                                             autofocus="true"></form:input>
-                                <form:errors path="subject"></form:errors>
+                                <form:errors cssClass="error-message" path="subject"></form:errors>
                             </div>
                         </spring:bind>
                     </div>

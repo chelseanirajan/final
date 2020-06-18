@@ -31,7 +31,7 @@
                         </c:forEach>
                     </select>
                     <div class="input-group-btn">
-                        <button class="btn btn-primary" type="submit" onclick="resetForm()">
+                        <button class="btn btn-primary" type="submit" onclick="refreshPage()">
                             <i class="glyphicon glyphicon-list"> Yearly Ledger</i></button>
                     </div>
                 </div>

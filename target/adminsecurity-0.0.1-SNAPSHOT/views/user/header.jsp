@@ -9,6 +9,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Student Manager</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/myCss.css"/>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/common/nav.css"/>
     <script type="text/javascript" src="${contextPath}/resources/jquery/jquery.min.js"></script>
@@ -95,6 +96,7 @@
                 <li class="nav-item" >
                     <a href="${contextPath}/user">Home</a>
                 </li>
+                <%--
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -102,19 +104,23 @@
                         <li><a href="${contextPath}/user/student/parent_info">Add Parent Info</a></li>
                         <li><a href="${contextPath}/user/parent/parent_list">Parent List</a></li>
                     </ul>
+                </li>--%>
+                <li class="nav-item">
+                    <a href="${contextPath}/user/teacher">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="${contextPath}/user/student/parent_info">Add Parents</a>
+                </li>
+                <li>
+                    <a href="${contextPath}/user/parent/parent_list">Parent List</a>
                 </li>
                 <li class=" nav-item">
-                    <a href="#">Service</a>
-                </li>
-                <li class=" nav-item">
-                    <a href="${contextPath}/user/student/dow_excel">SpreadSheet</a>
+                    <a href="${contextPath}/user/student/dow_excel">Yearly Ledger</a>
                 </li>
                 <li class=" nav-item">
                     <a href="${contextPath}/user/student/excel">Upload File</a>
                 </li>
-                <li>
-                    <a href="#">Download Excel</a>
-                </li>
+
                 <li>
                     <a href="${contextPath}/user/student/contact">Contact</a>
                 </li>

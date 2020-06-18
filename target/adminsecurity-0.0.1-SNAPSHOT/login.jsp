@@ -11,6 +11,7 @@
     <title>Log in with your account</title>
 
     <!-- Fontfaces CSS-->
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/myCss.css"/>
     <link href="${contextPath}/views/super-admin/css/font-face.css" rel="stylesheet" media="all">
     <link href="${contextPath}/views/super-admin/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="${contextPath}/views/super-admin/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
@@ -47,7 +48,7 @@
                         <form method="POST" action="${contextPath}/login">
                             <div class="form-group ${error != null ? 'has-error' : ''}">
                                 <span>${message}</span>
-                                <a><span>${error}</span></a>
+                                <a><span class="error-message">${error}</span></a>
                                 <div class="form-group">
                                     <label>User Name:</label>
                                     <input class="au-input au-input--full" type="username" name="username" placeholder="Username" autofocus="true" />

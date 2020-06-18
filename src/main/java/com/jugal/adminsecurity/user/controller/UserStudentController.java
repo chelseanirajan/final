@@ -175,29 +175,19 @@ public class UserStudentController {
                                    HttpServletRequest httpServletRequest,
 
                                    RedirectAttributes redirectAttrs) {
-
-      /*
-      validation
-       */
         if(file.getSize() == 0){
             httpServletRequest.setAttribute("url", "student");
             return new ModelAndView("/views/user/add-excel");
         }
-
-     //   studentList.setUser(userService.getCurrentUser());
-        //validator.validate(studentList, result);
-//        if (result.hasErrors()) {
-//            httpServletRequest.setAttribute("url", "student");
-//            return new ModelAndView("/views/user/add-excel");
-//        }
-       // try {
+      // try {
            // userForm.setUser(userService.findByUsername(httpServletRequest.getUserPrincipal().getName()));
             studentService.store(file);
             redirectAttrs.addFlashAttribute("message","File Uploaded Successfully!");
-       // } catch (Exception e) {
-         redirectAttrs.addFlashAttribute("message","Fail! -> Uploaded filename: " + file.getOriginalFilename());
+        //} catch (Exception e) {
+            redirectAttrs.addFlashAttribute("message","Fail! -> Uploaded filename: " + file.getOriginalFilename());
 
-        //}
+           //
+         //}
         return new ModelAndView("redirect:/");
     }
     @GetMapping({"parent_info"})

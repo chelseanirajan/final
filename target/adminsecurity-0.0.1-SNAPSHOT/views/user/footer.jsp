@@ -71,7 +71,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p>Jugal ITO © 2020. All rights reserved.</p>
+                    <p>Nirajan Karki © 2020. All rights reserved.</p>
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@
     <title>Inbox</title>
 
     <!-- Fontfaces CSS-->
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/myCss.css"/>
     <link href="${contextPath}/views/super-admin/css/font-face.css" rel="stylesheet" media="all">
     <link href="${contextPath}/views/super-admin/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="${contextPath}/views/super-admin/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">

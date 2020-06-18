@@ -155,6 +155,7 @@
                         <div class="col-lg-9">
                             <h2 class="title-1 m-b-25">Student Info</h2>
                             <div class="table-responsive table--no-card m-b-40">
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
@@ -179,6 +180,7 @@
                                     </tbody>
                                     </c:forEach>
                                 </table>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -186,6 +188,7 @@
                             <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
                                 <div class="au-card-inner">
                                     <div class="table-responsive">
+                                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                         <table class="table table-top-countries">
                                             <c:forEach var="teacher" items="${teacher}" varStatus="loop">
                                             <tbody>
@@ -196,6 +199,7 @@
                                             </tbody>
                                                 </c:forEach>
                                         </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -30,7 +30,8 @@ public class Student {
     @Min(value = 1, message = "The value must be positive")
     private int rollNo;
     @Valid
-    @Pattern(regexp="([0-9]{4})[-/.]([0-12]{2})[-/.][0-32]{2}", message = "please enter date in yyyy/mm/dd format")
+    @NotBlank(message = "Enter the valid date")
+    //@Pattern(regexp="([0-9]{4})[-/.]([0-12]{2})[-/.][0-32]{2}", message = "please enter date in yyyy/mm/dd format")
     private String doB;
     private String fatherName;
     private String motherName;
